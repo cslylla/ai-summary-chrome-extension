@@ -1,6 +1,6 @@
 {
   "name": "ai-summary-chrome-extension",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "A chrome extension for AI summary",
   "license": "MIT",
   "repository": {
@@ -13,6 +13,7 @@
     "prettier": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
   },
   "dependencies": {
+    "@google/genai": "^1.43.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

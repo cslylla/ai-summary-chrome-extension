@@ -2,7 +2,10 @@
   "manifest_version": 3,
   "name": "AI Summary Chrome Extension",
   "description": "An AI summary chrome extension",
-  "background": { "service_worker": "background.bundle.js" },
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.bundle.js"
+  },
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon-34.png"
@@ -17,10 +20,13 @@
       "css": ["content.styles.css"]
     }
   ],
+  "host_permissions": [
+    "https://generativelanguage.googleapis.com/*"
+  ],
   "web_accessible_resources": [
     {
       "resources": ["content.styles.css", "icon-128.png", "icon-34.png"],
-      "matches": []
+      "matches": ["<all_urls>"]
     }
   ]
 }
