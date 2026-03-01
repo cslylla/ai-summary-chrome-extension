@@ -59,3 +59,7 @@ npm run build
 
 - **Replace:** Enter a new key and click **Save API Key**
 - **Delete:** Click **Delete API Key** to remove it from storage
+
+### Disable AI Summary Chrome Extension
+
+You can /enable the feature in the extension popup.
