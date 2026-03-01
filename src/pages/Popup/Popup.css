@@ -1,26 +1,26 @@
 .popup {
   min-width: 320px;
   padding: 0;
-  background: #0f172a;
+  background: #402e32;
 }
 
 .popup-header {
   padding: 20px 24px;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border-bottom: 1px solid #334155;
+  background: linear-gradient(135deg, #402e32 0%, #2e290b 100%);
+  border-bottom: 1px solid #402e32;
 }
 
 .popup-title {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: #f8fafc;
+  color: #dba11c;
 }
 
 .popup-subtitle {
   margin: 4px 0 0;
   font-size: 13px;
-  color: #94a3b8;
+  color: #dfe0df;
 }
 
 .popup-body {
@@ -33,13 +33,13 @@
   justify-content: space-between;
   margin-bottom: 20px;
   padding-bottom: 16px;
-  border-bottom: 1px solid #334155;
+  border-bottom: 1px solid #dfe0df;
 }
 
 .popup-section-label {
   font-size: 14px;
   font-weight: 500;
-  color: #e2e8f0;
+  color: #dfe0df;
 }
 
 .popup-disable-btn {
@@ -136,7 +136,7 @@
   font-size: 14px;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #dba11c 0%, #f5ab00 100%);
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -144,7 +144,7 @@
 }
 
 .popup-save-btn:hover {
-  background: linear-gradient(135deg, #5558e3 0%, #7c3aed 100%);
+  background: linear-gradient(135deg, #f5ab00 0%, #dba11c 100%);
 }
 
 .popup-save-btn:active {
