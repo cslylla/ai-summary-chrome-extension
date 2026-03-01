@@ -1,3 +1,5 @@
+<img src="src/assets/img/icon-128.png" width="64"/>
+
 # AI Summary Chrome Extension
 
 A Chrome extension that uses Google's Gemini AI to summarize any webpage. Click the floating AI button on any page to get a concise, readable summary.
