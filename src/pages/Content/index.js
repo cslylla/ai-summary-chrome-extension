@@ -166,10 +166,43 @@
     }
   }
 
+  const ENABLED_KEY = 'enabled';
+  let currentButton = null;
+
+  function showButton() {
+    if (currentButton) return;
+    currentButton = createFloatingButton();
+    currentButton.addEventListener('click', openModal);
+    document.body.appendChild(currentButton);
+  }
+
+  function hideButton() {
+    if (currentButton && currentButton.parentNode) {
+      currentButton.remove();
+      currentButton = null;
+    }
+  }
+
+  function updateButtonVisibility(enabled) {
+    if (enabled) {
+      showButton();
+    } else {
+      hideButton();
+    }
+  }
+
   function init() {
-    const btn = createFloatingButton();
-    btn.addEventListener('click', openModal);
-    document.body.appendChild(btn);
+    chrome.storage.local.get(ENABLED_KEY, (result) => {
+      const enabled = result[ENABLED_KEY] !== false;
+      updateButtonVisibility(enabled);
+    });
+
+    chrome.storage.onChanged.addListener((changes, areaName) => {
+      if (areaName === 'local' && changes[ENABLED_KEY]) {
+        const enabled = changes[ENABLED_KEY].newValue !== false;
+        updateButtonVisibility(enabled);
+      }
+    });
   }
 
   if (document.readyState === 'loading') {

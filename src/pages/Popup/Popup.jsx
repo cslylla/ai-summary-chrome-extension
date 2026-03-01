@@ -2,16 +2,19 @@ import React, { useState, useEffect } from 'react';
 import './Popup.css';
 
 const STORAGE_KEY = 'apiKey';
+const ENABLED_KEY = 'enabled';
 
 const Popup = () => {
   const [apiKey, setApiKey] = useState('');
   const [hasKeySaved, setHasKeySaved] = useState(false);
+  const [enabled, setEnabled] = useState(true);
   const [saved, setSaved] = useState(false);
   const [status, setStatus] = useState('');
 
   useEffect(() => {
-    chrome.storage.local.get(STORAGE_KEY, (result) => {
+    chrome.storage.local.get([STORAGE_KEY, ENABLED_KEY], (result) => {
       setHasKeySaved(!!result[STORAGE_KEY]);
+      setEnabled(result[ENABLED_KEY] !== false);
     });
   }, []);
 
@@ -46,6 +49,30 @@ const Popup = () => {
     });
   };
 
+  const handleDisable = () => {
+    chrome.storage.local.set({ [ENABLED_KEY]: false }, () => {
+      setEnabled(false);
+      setStatus('Extension disabled');
+      setSaved(true);
+      setTimeout(() => {
+        setStatus('');
+        setSaved(false);
+      }, 2000);
+    });
+  };
+
+  const handleEnable = () => {
+    chrome.storage.local.set({ [ENABLED_KEY]: true }, () => {
+      setEnabled(true);
+      setStatus('Extension enabled');
+      setSaved(true);
+      setTimeout(() => {
+        setStatus('');
+        setSaved(false);
+      }, 2000);
+    });
+  };
+
   return (
     <div className="popup">
       <div className="popup-header">
@@ -54,6 +81,19 @@ const Popup = () => {
       </div>
 
       <div className="popup-body">
+        <div className="popup-section">
+          <span className="popup-section-label">AI Summary</span>
+          {enabled ? (
+            <button className="popup-disable-btn" onClick={handleDisable}>
+              Disable
+            </button>
+          ) : (
+            <button className="popup-enable-btn" onClick={handleEnable}>
+              Enable
+            </button>
+          )}
+        </div>
+
         <label htmlFor="api-key" className="popup-label">
           Gemini API Key
         </label>

@@ -23,15 +23,22 @@ A Chrome extension that uses Google's Gemini AI to summarize any webpage. Click 
 
 ### Install & Build
 
+#### Clone the repository
+
 ```bash
-# Clone the repository
 git clone <repository-url>
 cd ai-summary-chrome-extension
+```
 
-# Install dependencies
+#### Install dependencies
+
+```bash
 npm install
+```
 
-# Build the extension
+#### Build the extension
+
+```bash
 npm run build
 ```
 
@@ -42,7 +49,7 @@ npm run build
 3. Click **Load unpacked**
 4. Select the `build` folder from this project
 
-## Usage
+### Usage
 
 1. **Add your API key** — Click the extension icon to open the popup. Enter your [Gemini API key](https://aistudio.google.com/apikey) (from Google AI Studio) and click **Save API Key**. The key is stored locally and treated as a password.
 2. **Summarize a page** — Visit any webpage and click the purple AI button in the bottom-left corner. The extension extracts the page text, sends it to Gemini, and displays a two-paragraph summary in a modal.
