@@ -64,4 +64,4 @@ npm run build
 
 ### Disable AI Summary Chrome Extension
 
-You can /enable the feature in the extension popup.
+You can disable/enable the feature in the extension popup.
